@@ -1,0 +1,13 @@
+.btn {
+    margin: 10px 0px;
+}
+
+#product {
+    text-align: center;
+}
+#price {
+    display: none;
+    text-align: center;
+    border: 2px double green;
+    font-size: 2em;
+}
