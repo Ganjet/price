@@ -5,7 +5,13 @@
 #product {
     text-align: center;
 }
-#price {
+#price{
+    display: none;
+    text-align: center;
+    border: 2px double green;
+    font-size: 2em;
+}
+#cals {
     display: none;
     text-align: center;
     border: 2px double green;
