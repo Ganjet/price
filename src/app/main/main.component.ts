@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { element } from 'protractor';
-import { ENGINE_METHOD_PKEY_ASN1_METHS } from 'constants';
 
 @Component({
     selector: 'app-main',
@@ -12,15 +10,16 @@ export class MainComponent implements OnInit {
     type;
     width;
     heigth;
-    color;
-    CurPrice : number;
-    valuta : number;
-    test : number;
-    cals : number;
+    checkbox = 'yes';
+    CurPrice: number;
+    valuta: number;
+    test: number;
+    cals: number;
+    prices;
     arr =
         [
             {
-                product: 'zebra', type: 'O', width: '30', heigth: '60', price : '11.9'
+                product: 'zebra', type: 'O', width: '30', heigth: '60', price: '11.9'
             },
             {
                 product: 'zebra', type: 'O', width: '30', heigth: '80', price: '12.7'
@@ -3372,7 +3371,6 @@ export class MainComponent implements OnInit {
     constructor() { }
 
     ngOnInit() {
-    
     }
     fan(value) {
         this.product = value;
@@ -3387,26 +3385,45 @@ export class MainComponent implements OnInit {
         this.heigth = value;
     }
     fan4(value) {
-        this.color = value;
+        this.checkbox = value;
     }
-    Calc(value:number) {
+    fan6(value) {
+        this.valuta = (value.target.value);
+    }
+
+    Calc(value: number) {
         this.valuta = (value);
-        this.test = this.valuta * this.CurPrice;
-        this.test = parseFloat(this.test.toFixed(3));
-        console.log(this.test);
-        document.getElementById('cals').style.display = 'block'
-       
+        if (this.checkbox == 'yes') {
+            this.test = this.valuta * (this.CurPrice + 1.5);
+            this.test = parseFloat(this.test.toFixed(3));
+            let check = this.test;
+            let price = check.toString();
+            document.getElementById('cals').innerText = price;
+            document.getElementById('cals').style.display = 'block'
+        } else if (this.checkbox == 'no') {
+            this.test = this.valuta * this.CurPrice;
+            this.test = parseFloat(this.test.toFixed(3));
+            let check = this.test;
+            let price = check.toString();
+            document.getElementById('cals').innerText = price;
+            document.getElementById('cals').style.display = 'block'
+        }
     }
     price() {
         for (let index = 0; index < this.arr.length; index++) {
             const element = this.arr[index];
             if (element.product == this.product && element.type == this.type && element.heigth == this.heigth && element.width == this.width) {
                 this.CurPrice = parseFloat(element.price);
-                document.getElementById('price').innerText = (element.price + '$')
-                document.getElementById('price').style.display = 'block';
-                break;
+                if (this.checkbox == 'yes') {
+                    let check = this.CurPrice + (1.5);
+                    let price = check.toString()
+                    document.getElementById('price').innerText = (price)
+                    document.getElementById('price').style.display = 'block';
+                } else if (this.checkbox = 'no') {
+                    document.getElementById('price').innerText = (element.price)
+                    document.getElementById('price').style.display = 'block';
+                }
             } else {
-                // document.getElementById('price').innerText = 'Немає ціни'
             }
         }
     }

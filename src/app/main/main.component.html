@@ -1,59 +1,99 @@
 <div class="container">
-  <div class="row">
+  <div class="row main">
     <div class="col-12">
       <div (change)="price()">
         <div class="form-group">
-          <div class="btn btn-success btn-block">Продукт</div>
-          <select name="product" id="product" #product (change)="fan(product.value)" class="form-control">
-            <option value="default" selected>Виберіть Значення</option>
-            <option value="zebra">Зебра М19 МП</option>
-            <option value="kolibri">Колібрі М19</option>
-          </select>
+          <div class="row">
+            <div class="col-4 align-self-center alignEnd">
+              <label class="align-self-center">Продукт</label>
+            </div>
+            <div class="col-8">
+              <select name="product" id="product" #product (change)="fan(product.value)" class="form-control">
+                <option value="default" selected>Виберіть значення</option>
+                <option value="zebra">Зебра М19 МП</option>
+                <option value="kolibri">Колібрі М19</option>
+              </select>
+            </div>
+          </div>
+          <!-- <div class="btn btn-success btn-block">Продукт</div> -->
+
         </div>
         <div class="form-group">
-          <div class="btn btn-success btn-block"> Модуль</div>
-          <select name="mod" id="mod" #type (change)="fan1(type.value)" class="form-control">
-            <option value="default" selected>Виберіть Значення</option>
-            <option value="O">O</option>
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="C">C</option>
-            <option value="D">D</option>
-          </select>
+          <div class="row">
+            <div class="col-4 align-self-center alignEnd">
+              <label class="success"> Модуль</label>
+            </div>
+            <div class="col-8">
+              <select name="mod" id="mod" #type (change)="fan1(type.value)" class="form-control">
+                <option value="default" selected>Виберіть значення</option>
+                <option value="O">O</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+              </select>
+            </div>
+          </div>
         </div>
         <div class="form-group">
-          <div class="btn btn-success btn-block">Ширина</div>
-          <select name="width" id="width" #width (change)="fan2(width.value)" class="form-control">
-            <option value="default" selected>Виберіть Значення</option>
-            <option value="30">30</option>
-            <option value="40">40</option>
-            <option value="50">50</option>
-            <option value="60">60</option>
-            <option value="70">70</option>
-            <option value="80">80</option>
-            <option value="90">90</option>
-            <option value="100">100</option>
-            <option value="110">110</option>
-            <option value="120">120</option>
-            <option value="130">130</option>
-            <option value="140">140</option>
-          </select>
+          <div class="row">
+            <div class="col-4 alignEnd">
+              <label class="">Ширина</label>
+            </div>
+            <div class="col-8">
+              <select name="width" id="width" #width (change)="fan2(width.value)" class="form-control">
+                <option value="default" selected>Виберіть значення</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+                <option value="60">60</option>
+                <option value="70">70</option>
+                <option value="80">80</option>
+                <option value="90">90</option>
+                <option value="100">100</option>
+                <option value="110">110</option>
+                <option value="120">120</option>
+                <option value="130">130</option>
+                <option value="140">140</option>
+              </select>
+            </div>
+          </div>
         </div>
         <div class="form-group">
-          <div class="btn btn-success btn-block">Висота</div>
-          <select name="heigth" id="heigth" #heigth (change)="fan3(heigth.value)" class="form-control">
-            <option value="default" selected>Виберіть Значення</option>
-            <option value="60">60</option>
-            <option value="80">80</option>
-            <option value="100">100</option>
-            <option value="120">120</option>
-            <option value="140">140</option>
-            <option value="160">160</option>
-            <option value="180">180</option>
-            <option value="200">200</option>
-            <option value="220">220</option>
-            <option value="240">240</option>
-          </select>
+          <div class="row">
+            <div class="col-4 alignEnd">
+              <label class="">Висота</label>
+            </div>
+            <div class="col-8">
+              <select name="heigth" id="heigth" #heigth (change)="fan3(heigth.value)" class="form-control">
+                <option value="default" selected>Виберіть значення</option>
+                <option value="60">60</option>
+                <option value="80">80</option>
+                <option value="100">100</option>
+                <option value="120">120</option>
+                <option value="140">140</option>
+                <option value="160">160</option>
+                <option value="180">180</option>
+                <option value="200">200</option>
+                <option value="220">220</option>
+                <option value="240">240</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-4 alignEnd">
+              <label for="">Фіксація</label>
+            </div>
+            <div class="col-2 ">
+              <select name="checkbox" id="checkbox" #checkbox (change)="fan4(checkbox.value)" class="form-control">
+                <option value="yes" selected>ТАК</option>
+                <option value="no">Ні</option>
+              </select>
+            </div>
+            <div class="col-6"></div>
+          </div>
         </div>
       </div>
       <div id="price"></div>
@@ -63,11 +103,8 @@
           <input type="number" name="currency" id="currency" placeholder="Введіть курс Валюти" class="form-control" #currency>
         </div>
         <div id="cals">
-          <span>
-            {{test}}
-          </span>
         </div>
-        <button (click)="Calc(currency.value)" type="button" class="btn btn-primary btn-block">Розразувати</button>
+        <button (click)="Calc(currency.value)" type="button" class="btn btn-primary btn-block">Розрахувати</button>
       </div>
     </div>
   </div>
