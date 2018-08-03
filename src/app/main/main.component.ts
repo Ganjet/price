@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
+    public isCollapsed = true;
     product;
     type;
     width;
@@ -16,6 +17,8 @@ export class MainComponent implements OnInit {
     test: number;
     cals: number;
     prices;
+    currentDate
+    arrHistory = [];
     arr =
         [
             {
@@ -3390,16 +3393,26 @@ export class MainComponent implements OnInit {
     fan6(value) {
         this.valuta = (value.target.value);
     }
+    clear() {
+        this.arrHistory = [];
+    }
 
     Calc(value: number) {
+
         this.valuta = (value);
+        this.currentDate = Date.now();
         if (this.checkbox == 'yes') {
             this.test = this.valuta * (this.CurPrice + 1.5);
             this.test = parseFloat(this.test.toFixed(3));
             let check = this.test;
             let price = check.toString();
-            document.getElementById('cals').innerText = price;
-            document.getElementById('cals').style.display = 'block'
+            if (isNaN(this.test) == true) {
+                document.getElementById('cals').style.display = 'none'
+            } else {
+                document.getElementById('cals').innerText = price;
+                document.getElementById('cals').style.display = 'block'
+                this.arrHistory.unshift({'price':price});
+            }
         } else if (this.checkbox == 'no') {
             this.test = this.valuta * this.CurPrice;
             this.test = parseFloat(this.test.toFixed(3));
@@ -3407,6 +3420,8 @@ export class MainComponent implements OnInit {
             let price = check.toString();
             document.getElementById('cals').innerText = price;
             document.getElementById('cals').style.display = 'block'
+            this.arrHistory.unshift({'price':price});
+            // this.arrHistory.unshift({'data'})
         }
     }
     price() {

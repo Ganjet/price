@@ -4,7 +4,7 @@
       <div class="logo">
         <div class="row">
           <div class="col-12 logoImg text-center">
-            <img src="https://pp.userapi.com/c624317/v624317330/4876c/HoVPYLVgHAA.jpg?ava=1" width="280px" height="150px" alt="Dear House">
+            <img src="https://image.ibb.co/c8yqVe/Ho_VPYLVg_HAA.jpg" width="200px" height="100px" alt="Dear House">
           </div>
         </div>
       </div>
@@ -26,7 +26,7 @@
         <div class="form-group">
           <div class="row">
             <div class="col-4 align-self-center alignEnd">
-              <label class="textLabel"> Модуль</label>
+              <label class="textLabel"> Категорія</label>
             </div>
             <div class="col-8">
               <select name="mod" id="mod" #type (change)="fan1(type.value)" class="form-control">
@@ -109,6 +109,31 @@
         <div id="cals">
         </div>
         <button (click)="Calc(currency.value)" type="button" class="button btn btn-primary btn-block">Розрахувати</button>
+      </div>
+      <div>
+        <p class="buttonHistory">
+          <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+            aria-controls="collapseExample">
+            Історія
+          </button>
+        </p>
+        <div *ngIf="arrHistory.length<=0" [ngbCollapse]="isCollapsed" class="emptyHistory">Історія пуста</div>
+        <div class="history" *ngIf="arrHistory.length>0">
+          <div>
+            <div id="collapseExample" [ngbCollapse]="isCollapsed">
+              <div class="card">
+                <div class="card-body">
+                  <table>
+                    <tr *ngFor="let key of arrHistory | slice:0:6">
+                      <td>Ціна -  {{key.price}} <br> Дата - {{currentDate | date:'yy-MM-dd h:MM:ss'}}</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button (click)="clear()">Очистити історію</button>
+        </div>
       </div>
     </div>
   </div>

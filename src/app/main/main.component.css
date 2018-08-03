@@ -89,3 +89,13 @@ select:focus {
 .button {
     border-radius: 50px;
 }
+.emptyHistory {
+    color: #848484;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.buttonHistory {
+    text-align: center;
+}
