@@ -1,11 +1,18 @@
 <div class="container">
   <div class="row main">
     <div class="col-12">
+      <div class="logo">
+        <div class="row">
+          <div class="col-12 logoImg text-center">
+            <img src="https://pp.userapi.com/c624317/v624317330/4876c/HoVPYLVgHAA.jpg?ava=1" width="280px" height="150px" alt="Dear House">
+          </div>
+        </div>
+      </div>
       <div (change)="price()">
         <div class="form-group">
           <div class="row">
             <div class="col-4 align-self-center alignEnd">
-              <label class="align-self-center">Продукт</label>
+              <label class="textLabel">Продукт</label>
             </div>
             <div class="col-8">
               <select name="product" id="product" #product (change)="fan(product.value)" class="form-control">
@@ -15,13 +22,11 @@
               </select>
             </div>
           </div>
-          <!-- <div class="btn btn-success btn-block">Продукт</div> -->
-
         </div>
         <div class="form-group">
           <div class="row">
             <div class="col-4 align-self-center alignEnd">
-              <label class="success"> Модуль</label>
+              <label class="textLabel"> Модуль</label>
             </div>
             <div class="col-8">
               <select name="mod" id="mod" #type (change)="fan1(type.value)" class="form-control">
@@ -38,7 +43,7 @@
         <div class="form-group">
           <div class="row">
             <div class="col-4 alignEnd">
-              <label class="">Ширина</label>
+              <label class="textLabel">Ширина</label>
             </div>
             <div class="col-8">
               <select name="width" id="width" #width (change)="fan2(width.value)" class="form-control">
@@ -62,7 +67,7 @@
         <div class="form-group">
           <div class="row">
             <div class="col-4 alignEnd">
-              <label class="">Висота</label>
+              <label class="textLabel">Висота</label>
             </div>
             <div class="col-8">
               <select name="heigth" id="heigth" #heigth (change)="fan3(heigth.value)" class="form-control">
@@ -84,27 +89,26 @@
         <div class="form-group">
           <div class="row">
             <div class="col-4 alignEnd">
-              <label for="">Фіксація</label>
+              <label class="textLabel">Фіксація</label>
             </div>
-            <div class="col-2 ">
+            <div class="col-8">
               <select name="checkbox" id="checkbox" #checkbox (change)="fan4(checkbox.value)" class="form-control">
                 <option value="yes" selected>ТАК</option>
                 <option value="no">Ні</option>
               </select>
             </div>
-            <div class="col-6"></div>
           </div>
         </div>
       </div>
       <div id="price"></div>
       <div class="calculet">
-        <div class="form-group">
-          <label for="currency">Розрахунок Валюти</label>
+        <div class="form-group text-center ">
+          <label for="currency" class="calcCurrency">Розрахунок Валюти</label>
           <input type="number" name="currency" id="currency" placeholder="Введіть курс Валюти" class="form-control" #currency>
         </div>
         <div id="cals">
         </div>
-        <button (click)="Calc(currency.value)" type="button" class="btn btn-primary btn-block">Розрахувати</button>
+        <button (click)="Calc(currency.value)" type="button" class="button btn btn-primary btn-block">Розрахувати</button>
       </div>
     </div>
   </div>

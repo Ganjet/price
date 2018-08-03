@@ -9,15 +9,17 @@
 #price {
     display: none;
     text-align: center;
-    border: 2px double green;
-    font-size: 2em;
+    border: 2px double #5EACE9;
+    font-size: 1.5em;
+    border-radius: 50px;
 }
 
 #cals {
     display: none;
     text-align: center;
-    border: 2px double green;
-    font-size: 2em;
+    border: 2px double #5EACE9;
+    font-size: 1.5em;
+    border-radius: 50px;
 }
 
 label {
@@ -27,6 +29,7 @@ label {
 
 .main {
     margin-top: 15px;
+    background-color: #DBE7EF;
 }
 
 .checkbox {
@@ -35,15 +38,54 @@ label {
     margin-left: 15px;
 }
 
-select {
+select,
+input {
     font-weight: bold;
     font-size: 0.9rem;
+    -webkit-appearance: none;
+    border-radius: 50px;
+    text-align-last: center;
+    color: #848484
 }
 
 .alignEnd {
     text-align: center;
 }
 
-input[type=checkbox] {
-    zoom: 2;
+.textLabel {
+    background-color: white;
+    width: 100px;
+    border-radius: 50px;
+    padding-bottom: 5px;
+    padding-top: 2px;
+    color: #848484
+}
+
+.textLabel:hover {
+    background-color: #5EACE9;
+    color: white;
+}
+
+select:hover,
+select:active,
+select:focus {
+    background-color: #5EACE9;
+    color: white;
+}
+
+.logoImg {
+    margin-bottom: 20px;
+}
+
+.logoImg img {
+    border-radius: 100px;
+}
+
+.calcCurrency {
+    color: #848484;
+    font-weight: bold;
+}
+
+.button {
+    border-radius: 50px;
 }
