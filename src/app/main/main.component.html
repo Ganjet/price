@@ -117,22 +117,27 @@
             Історія
           </button>
         </p>
-        <div *ngIf="arrHistory.length<=0" [ngbCollapse]="isCollapsed" class="emptyHistory">Історія пуста</div>
-        <div class="history" *ngIf="arrHistory.length>0">
-          <div>
-            <div id="collapseExample" [ngbCollapse]="isCollapsed">
-              <div class="card">
-                <div class="card-body">
-                  <table>
-                    <tr *ngFor="let key of arrHistory | slice:0:6">
-                      <td>Ціна -  {{key.price}} <br> Дата - {{currentDate | date:'yy-MM-dd h:MM:ss'}}</td>
-                    </tr>
-                  </table>
+        <div *ngIf="localArr">
+          <div class="history" *ngIf="localArr.length>0">
+            <div>
+              <div id="collapseExample" [ngbCollapse]="isCollapsed">
+                <div class="card">
+                  <div class="card-body historyArr">
+                    <table>
+                      <tr *ngFor="let key of localArr | slice:0:6">
+                        <td>
+                          {{key.price}}
+                        </td>
+                        <td>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
                 </div>
+                <button class="buttonHistory" (click)="clear()">Очистити історію</button>
               </div>
             </div>
           </div>
-          <button (click)="clear()">Очистити історію</button>
         </div>
       </div>
     </div>

@@ -99,3 +99,15 @@ select:focus {
 .buttonHistory {
     text-align: center;
 }
+.historyArr {
+    background-color: #5EACE9;
+    margin-bottom: 10px;
+    border-radius: 50px;
+
+}
+.buttonHistory {
+}
+.card {
+    background-color: #DBE7EF;
+    border: none;
+}

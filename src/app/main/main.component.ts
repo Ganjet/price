@@ -17,7 +17,8 @@ export class MainComponent implements OnInit {
     test: number;
     cals: number;
     prices;
-    currentDate
+    currentDate;
+    localArr;
     arrHistory = [];
     arr =
         [
@@ -3374,6 +3375,7 @@ export class MainComponent implements OnInit {
     constructor() { }
 
     ngOnInit() {
+        this.localArr = JSON.parse(localStorage.getItem('history'));
     }
     fan(value) {
         this.product = value;
@@ -3394,13 +3396,13 @@ export class MainComponent implements OnInit {
         this.valuta = (value.target.value);
     }
     clear() {
-        this.arrHistory = [];
+        localStorage.clear();
+        this.localArr = [];
     }
 
     Calc(value: number) {
 
         this.valuta = (value);
-        this.currentDate = Date.now();
         if (this.checkbox == 'yes') {
             this.test = this.valuta * (this.CurPrice + 1.5);
             this.test = parseFloat(this.test.toFixed(3));
@@ -3411,7 +3413,7 @@ export class MainComponent implements OnInit {
             } else {
                 document.getElementById('cals').innerText = price;
                 document.getElementById('cals').style.display = 'block'
-                this.arrHistory.unshift({'price':price});
+                this.arrHistory.unshift({ 'price': price });
             }
         } else if (this.checkbox == 'no') {
             this.test = this.valuta * this.CurPrice;
@@ -3420,9 +3422,12 @@ export class MainComponent implements OnInit {
             let price = check.toString();
             document.getElementById('cals').innerText = price;
             document.getElementById('cals').style.display = 'block'
-            this.arrHistory.unshift({'price':price});
-            // this.arrHistory.unshift({'data'})
+            this.arrHistory.unshift({ 'price': price });
         }
+        console.log(this.arrHistory);
+        localStorage.setItem('history', JSON.stringify(this.arrHistory));
+        this.localArr = JSON.parse(localStorage.getItem('history'));
+        console.log(this.localArr);
     }
     price() {
         for (let index = 0; index < this.arr.length; index++) {
